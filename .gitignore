@@ -1,0 +1,31 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build folders
+bin/
+obj/
+
+# NuGet
+packages/
+*.nupkg
+
+# Logs & OS files
+*.log
+.DS_Store
+Thumbs.db
+
+# Secrets (Ignore local secrets, but KEEP App.config tracked)
+secrets.config
+*.user.config
+
+# Database files (if any local)
+*.mdf
+*.ldf
+
+# Editors
+.idea/
+.vscode/
