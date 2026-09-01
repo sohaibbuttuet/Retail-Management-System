@@ -1,290 +1,80 @@
-<div align="center">
+# RMS (Retail Management System)
 
-# 🚀 SQL Judge System
-
-### Automated SQL Learning, Assessment & Contest Management Platform
-
-![C#](https://img.shields.io/badge/C%23-.NET_Framework-512BD4?style=for-the-badge&logo=csharp)
-![.NET](https://img.shields.io/badge/.NET-Framework-512BD4?style=for-the-badge&logo=dotnet)
-![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
-![Windows Forms](https://img.shields.io/badge/Windows-Forms-0078D6?style=for-the-badge&logo=windows)
-![Visual Studio](https://img.shields.io/badge/Visual_Studio-2022-5C2D91?style=for-the-badge&logo=visualstudio)
-
-An automated SQL Judge platform developed using **C#**, **Windows Forms**, **ADO.NET**, and **MySQL** that enables students to practice SQL, participate in contests, receive instant evaluation, and track their learning progress.
-
-</div>
+A robust, secure Windows Forms (WinForms) desktop application built with C# and MySQL, designed to streamline retail store operations, inventory tracking, customer management, and sales invoicing.
 
 ---
 
-# 📖 Overview
+## Tech Stack & Architecture
 
-SQL Judge System is a desktop-based educational platform that automates SQL query evaluation for database courses.
-
-Instead of manually checking SQL assignments, instructors define the correct solution once. Students submit SQL queries, and the system automatically evaluates them against the expected output, providing instant feedback, rankings, and contest scoring.
-
----
-
-## 🎥 Demo Video
-
-Watch the complete demonstration of the project on LinkedIn:
-
-**LinkedIn Demo:**
-https://www.linkedin.com/posts/muhammad-sohaib-hassan-681a33394_sqljudgesystem-oop-mysql-ugcPost-7471232554549997569-qAxu/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAGD5AwEBJej_TaksV1YKq3aQFyKbiRpIqgo
-
-> The demo showcases the complete workflow, including login, SQL query execution, automatic judging, contest management, leaderboards, reports, and dashboards.
+* **Language:** C# (.NET Framework)
+* **UI Framework:** Windows Forms (WinForms)
+* **Database:** MySQL (`retail_management_system`)
+* **Data Access:** ADO.NET (`MySql.Data`) with parameterized queries to prevent SQL injection.
+* **Configuration:** XML-based separation (`App.config` and `secrets.config` for sensitive credentials).
+* **Design Patterns:** Thread-safe Singleton pattern (`DatabaseHelper`) using `Lazy<T>`.
 
 ---
 
-# ✨ Features
+## Project Structure
 
-## 🔐 Authentication
+```text
+RMS/
+├── BL/               # Business Logic Layer
+├── DL/               # Data Access Layer (AdminDL, CategoryDL, CustomerDL, InvoiceDL, InvoiceItemDL, ProductDL)
+├── Models/           # Entity Classes (Admin, Category, Customer, Invoice, InvoiceItem, Product)
+├── UI/               # Windows Forms User Interface
+├── App.config        # Application Configuration
+├── secrets.config    # Database Connection Strings (Ignored by Git)
+└── Program.cs        # Entry Point
 
-- Secure Login
-- Student Registration
-- Session Management
-- Role-Based Access Control
-- Admin & Student Dashboards
-
----
-
-## 👨‍🎓 Student Module
-
-- Practice SQL Problems
-- Submit SQL Queries
-- View Submission History
-- Performance Statistics
-- Contest Participation
-- Rankings
-
----
-
-## 👨‍💼 Admin Module
-
-- Manage Students
-- Manage Administrators
-- Manage SQL Problems
-- Create Test Cases
-- Create Contests
-- Generate Reports
-
----
-
-## ⚡ SQL Judge Engine
-
-- SQL Query Validation
-- Automatic Execution
-- Result Comparison
-- Expected Output Matching
-- Verdict Generation
-- Secure Query Execution
-
----
-
-## 🏆 Contest System
-
-- Contest Creation
-- Contest Registration
-- Automatic Scoring
-- Contest Rankings
-- Leaderboards
-
----
-
-## 📊 Reporting
-
-- Student Reports
-- Contest Reports
-- Submission Analytics
-- Ranking Reports
-- Problem Statistics
-
----
-
-# 🏗️ System Architecture
-
-```
-               Windows Forms UI
-                      │
-                      ▼
-        Business Logic Layer (BLL)
-                      │
-                      ▼
-          Data Access Layer (DAL)
-                      │
-                      ▼
-                 MySQL Database
-```
-
-The application follows a **Three-Layer Architecture** that separates the presentation, business logic, and data access layers, resulting in a clean, maintainable, and scalable design.
-
----
-
-# ⚙️ Technology Stack
-
-| Category | Technology |
-|----------|------------|
-| Programming Language | C# |
-| Framework | .NET Framework |
-| User Interface | Windows Forms |
-| IDE | Visual Studio 2022 |
-| Database | MySQL |
-| Data Access | ADO.NET |
-| Query Language | SQL & LINQ |
-| Architecture | Three-Layer Architecture |
-
----
-
-# 🔄 SQL Evaluation Workflow
-
-```
-Student Writes Query
-          │
-          ▼
-Query Validation
-          │
-          ▼
-Security Check
-          │
-          ▼
-Execute Query
-          │
-          ▼
-Execute Instructor Solution
-          │
-          ▼
-Compare Result Sets
-          │
-          ▼
-Generate Verdict
-          │
-          ▼
-Update Database
-          │
-          ▼
-Leaderboard & Reports
 ```
 
 ---
 
-# ✅ Verdict Types
+## Core Features
 
-| Verdict | Description |
-|----------|-------------|
-| ✅ AC | Accepted |
-| ❌ WA | Wrong Answer |
-| ⚠️ SE | Syntax Error |
-| 💥 RE | Runtime Error |
-| 🔒 VE | Validation Error |
+* **Admin Authentication:** Secure login system with parameter-bound validation to protect against SQL injection.
+* **Inventory & Stock Management:** Complete CRUD operations for products and categories, including low-stock alerts (< 10 units) and relational safety checks preventing the deletion of active categories or products tied to existing invoices.
+* **Customer Management:** Maintain customer contact details, city tracking, purchase history lookup, and invoice association tracking.
+* **Invoicing & Sales:** Real-time generation of invoices and itemized receipt tracking with support for total calculations and historical date-range reporting.
 
 ---
 
-# 🗄️ Database Features
+## Getting Started & Installation
 
-- Relational Database Design
-- Stored Procedures
-- Views
-- Triggers
-- Constraints
-- Foreign Keys
-- Data Integrity
+### Prerequisites
 
----
+* Visual Studio (with .NET desktop development workload installed)
+* MySQL Server (Local or Remote)
 
-# 🔒 Security Features
+### Setup Steps
 
-- Query Validation
-- Restricted SQL Commands
-- Input Validation
-- Exception Handling
-- Role-Based Authorization
-- Secure Authentication
-
----
-
-# 📂 Core Modules
-
-```
-Authentication
-│
-├── Student Management
-├── Admin Management
-├── Problem Management
-├── Contest Management
-├── SQL Judge Engine
-├── Submission Management
-├── Reports
-├── Leaderboards
-└── Settings
-```
-
----
-
-# 🚀 Installation
-
-### Clone Repository
-
+1. **Clone the Repository:**
 ```bash
-git clone https://github.com/sohaibbuttuet/SQL-Judge-System.git
+git clone <repository-url>
+
 ```
 
-Open the solution in **Visual Studio 2022**.
 
-Restore NuGet packages.
+2. **Configure the Database:**
+* Import your MySQL schema into a database named `retail_management_system`.
 
-Import the MySQL database.
 
-Update the connection string.
+3. **Configure Database Secrets:**
+* Create a file named `secrets.config` in the root directory (matching the structure of `App.config`).
+* Add your connection string:
+```xml
+<connectionStrings>
+    <add name="DefaultConnection" connectionString="Server=127.0.0.1;Database=retail_management_system;Uid=root;Pwd=your_password;" providerName="MySql.Data.MySqlClient" />
+</connectionStrings>
 
-Run the application.
+```
 
----
 
-# 📈 Future Improvements
 
-- 🌐 Django Web Version
-- REST API
-- Docker Support
-- AI-Based SQL Feedback
-- Online Judge
-- Dark/Light Themes
-- Cloud Deployment
 
----
-
-# 📚 Learning Outcomes
-
-This project demonstrates:
-
-- Object-Oriented Programming
-- Database Management Systems
-- Software Engineering
-- Three-Layer Architecture
-- SQL Query Processing
-- Automated Assessment Systems
-- Desktop Application Development
-
----
-
-# 👨‍💻 Author
-
-**Muhammad Sohaib Hassan**
-
-BS Computer Science
-
-University of Engineering and Technology (UET), Lahore
-
----
-
-# 🙏 Supervisor
-
-**Mr. Nazeef-ul-Haq**
-
-Department of Computer Science and Engineering
-
-University of Engineering and Technology (UET), Lahore
-
----
-
-# ⭐ Support
-
-If you found this project useful, consider giving it a ⭐ on GitHub.
+4. **Open and Run:**
+* Open `RMS.sln` in Visual Studio.
+* Restore NuGet packages if prompted.
+* Ensure `secrets.config` has its **Copy to Output Directory** property set to **Copy if newer**.
+* Press **F5** to build and run the application.
