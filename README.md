@@ -1,5 +1,3 @@
-Absolutely — here’s a more polished, modern GitHub README with a professional structure, cleaner wording, and better presentation while keeping your project details intact.
-
 # 🛒 Retail Management System (RMS)
 
 A **secure, robust, and user-friendly desktop Retail Management System** built with **C# WinForms and MySQL** to simplify retail store operations.
